@@ -49,6 +49,46 @@ namespace Integration_Testing
             }
         }
 
+        [Test]
+        public void test2()
+        {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
+            login();
+            IWebElement element1=driver.FindElement(By.ClassName("dropdown-toggle"));
+            element1.Click();
+            IWebElement element2 = driver.FindElement(By.PartialLinkText("User Profile"));
+            element2.Click();
+            String title = driver.Title;
+            String et = "SUNRISE HOTEL";
+            if (title == et)
+            {
+                Console.WriteLine("Successful");
+            }
+            else
+            {
+                Console.WriteLine("Unsuccesful");
+            }
+        }
+        [Test]
+        public void test3()
+        {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
+            login();
+            IWebElement element1 = driver.FindElement(By.ClassName("dropdown-toggle"));
+            element1.Click();
+            driver.FindElement(By.XPath("/html/body/div/nav[1]/ul/li/ul/li[4]/a")).Click();
+           String title=driver.Title;
+            String et = "SUN RISE ADMIN";
+            if (title == et)
+            {
+                Console.WriteLine("Successful");
+            }
+            else
+            {
+                Console.WriteLine("Unsuccesful");
+            }
+        }
+
         [TearDown]
         public void CloseBrowser()
         {
