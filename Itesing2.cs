@@ -56,6 +56,7 @@ namespace Integration_Testing
             login();
             IWebElement element1=driver.FindElement(By.ClassName("dropdown-toggle"));
             element1.Click();
+            Console.WriteLine(element1.Displayed);
             IWebElement element2 = driver.FindElement(By.PartialLinkText("User Profile"));
             element2.Click();
             String title = driver.Title;
@@ -88,6 +89,7 @@ namespace Integration_Testing
                 Console.WriteLine("Unsuccesful");
             }
         }
+
 
         [TearDown]
         public void CloseBrowser()
